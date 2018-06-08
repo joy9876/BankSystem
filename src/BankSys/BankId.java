@@ -53,14 +53,14 @@ public class BankId {
 						if (strip[0].equals("Client"))
 						{
 							// 고객이면 Client 생성자 생성 뒤 Access 객체 포인터로 반환
-							Access Cl = new Client(strip[3]);
+							Access Cl = new Client(strip[3],1);
 							return Cl;
 							
 						}
 						else if(strip[0].equals("Admin"))
 						{
 							// 운영자이면 Admin 객체 생성 뒤 Access 객체 포인터로 반
-							Access Ad = new Admin("-1");
+							Access Ad = new Admin("-1", 1);
 							return Ad;
 						}
 	
