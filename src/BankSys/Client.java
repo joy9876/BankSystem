@@ -4,6 +4,10 @@ public class Client extends Access {
 	
 	private int logsit;		// login ���� ���� 1 : logon, 0 : logout;
 
+	public Client(String str) {
+		
+	}
+
 	public void Desit() {
 		// TODO Auto-generated method stub
 		

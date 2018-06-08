@@ -14,7 +14,7 @@ public class MAIN {
 		
 		// 객체 그룹
 		BankId Identi = new BankId();	// ID, PW 인에 필요한 객체이다.
-		Access Temp = new Access();				// Access를 통해 Client와 Administer를 이용할 수 있도록 한다.
+		Access Temp;				// Access를 통해 Client와 Administer를 이용할 수 있도록 한다.
 		
 		do {
 		System.out.println("----------------Login--------------");
@@ -35,7 +35,7 @@ public class MAIN {
 			Cl = (Client)Temp;
 		}
 		***/
-		/***
+		
 		while(true) {
 			
 			System.out.println("------------------------------------------------------------");
@@ -65,12 +65,10 @@ public class MAIN {
 			default:
 				System.out.println("Error. Please enter the number again");
 				
-			
 			}
 			
 			
 		}
-	***/
 		
 	}
 	
