@@ -9,13 +9,15 @@ import java.util.Scanner;
 
 public class Admin extends Access {
 	
-	String CliStr;	// 고객 이름
-	Scanner keyboard = new Scanner(System.in);
+	private String CliStr;	// 고객 이름
+	private Scanner keyboard = new Scanner(System.in);
+	private String Filename;
 
 	public Admin(String AccTxt, int logsit) {
 		super(AccTxt, logsit);
 	}
 	
+	// 고객 이름을 출력한다.
 	public void ClientPrint() {
 		
 		Path fp = Paths.get("/Users/kimhyeongseon/Desktop/Git/BankSystem/IdentiDB.txt");
@@ -28,11 +30,12 @@ public class Admin extends Access {
 			
 			while(true) {
 				str = br.readLine();
+				if(str == null)
+					break;
 				String[] strip = new String[3];
 				strip = str.split(", ");
 				
-				if(str == null)
-					break;
+				
 				// 파일 끝에서 while문 종료
 				
 				System.out.println(count++ +": " + strip[1]);
@@ -44,9 +47,18 @@ public class Admin extends Access {
 		
 	}
 	
-	public Client ClientInfo() {
+	/*public Client ClientInfo() {
 		
+	}*/
+	
+	public String NametoAccTxt(String CliStr) {
+		
+		
+		
+		return Filename;
 	}
+	
+
 	
 	public void Desit() {
 		
@@ -54,12 +66,14 @@ public class Admin extends Access {
 		
 		System.out.println("Choose the clients: ");
 		CliStr = keyboard.nextLine();
+	 	Filename = NametoAccTxt(CliStr);
 		
 		
 		System.out.print("DEPOSIT: ");
 		money = keyboard.nextInt();
+		keyboard.nextLine();
 		
-		ba.deposit(money);
+		//ba.deposit(user,money);
 		
 	}
 
@@ -73,7 +87,7 @@ public class Admin extends Access {
 		System.out.print("WITHDRAW: ");
 		money = keyboard.nextInt();
 		
-		ba.withdraw(money);
+		//ba.withdraw(user, money);
 		
 	}
 
@@ -84,7 +98,8 @@ public class Admin extends Access {
 		CliStr = keyboard.nextLine();
 		
 		System.out.print("ACCOUNT: ");
-		ba.showAll();
+		
+		//ba.showAll();
 	}
 
 	public void Left() {
@@ -94,7 +109,7 @@ public class Admin extends Access {
 		CliStr = keyboard.nextLine();
 		
 		System.out.print("LEFT: ");
-		ba.showLeft();
+		//ba.showLeft();
 	}
 	
 }

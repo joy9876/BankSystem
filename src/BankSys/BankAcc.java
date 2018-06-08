@@ -2,22 +2,22 @@ package BankSys;
 
 public class BankAcc extends BankId {
 
-	public void deposit(int money) {
+	public void deposit(String user, int money) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void withdraw(int money) {
+	public void withdraw(String user, int money) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void showAll() {
+	public void showAll(String user) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void showLeft() {
+	public void showLeft(String user) {
 		// TODO Auto-generated method stub
 		
 	}

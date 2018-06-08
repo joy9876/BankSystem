@@ -23,7 +23,7 @@ public class Access {
 		System.out.print("DEPOSIT: ");
 		money = keyboard.nextInt();
 		
-		ba.deposit(money);
+		ba.deposit(FILENAME, money);
 		
 	}
 
@@ -31,18 +31,18 @@ public class Access {
 		System.out.print("WITHDRAW: ");
 		money = keyboard.nextInt();
 		
-		ba.withdraw(money);
+		ba.withdraw(FILENAME, money);
 		
 	}
 
 	public void Show() {
 		System.out.print("ACCOUNT: ");
-		ba.showAll();
+		ba.showAll(FILENAME);
 	}
 
 	public void Left() {
 		System.out.print("LEFT: ");
-		ba.showLeft();
+		ba.showLeft(FILENAME);
 	}
 
 	public void logout() {
