@@ -12,9 +12,13 @@ public class Admin extends Access {
 	private String CliStr;	// 고객 이름
 	private Scanner keyboard = new Scanner(System.in);
 	private String Filename;
+	
+	private BankAcc ba = new BankAcc();
 
 	public Admin(String AccTxt, int logsit) {
 		super(AccTxt, logsit);
+		CliStr = null;
+		Filename = null;
 	}
 	
 	// 고객 이름을 출력한다.
@@ -47,13 +51,43 @@ public class Admin extends Access {
 		
 	}
 	
-	/*public Client ClientInfo() {
-		
-	}*/
-	
+	// 고객 이름에 해당하는 고객 DB의 위치를 반
 	public String NametoAccTxt(String CliStr) {
 		
+		Path fp = Paths.get("/Users/kimhyeongseon/Desktop/Git/BankSystem/IdentiDB.txt");
+		//입력 버퍼에서 받을 파일 주소를 입력한다.
 		
+		try(BufferedReader br = Files.newBufferedReader(fp)) {
+			// 파일 읽기 포인터를 생성한다.
+			String str;
+			String[] strip = new String[3];
+			
+			while(true) {
+				str = br.readLine();
+				if(str == null)
+				{
+					System.out.println("Not valid, please enter again");
+					break;
+				}
+				// 파일 끝에서 while문 종료
+				
+				strip = str.split(", ");
+				// IdentiDB는 ", " 으로 항목이 구분되어 있다.
+				
+				if (CliStr.equals(strip[1])) {
+				// 입력받은 ID와 DB ID가 같을때 true 반환, 아닐때 false 반환 
+					System.out.println("----------------------------");
+					System.out.println("Access ID" + strip[1] + ".");
+					System.out.println("----------------------------");
+					Filename = 	strip[3];
+					return Filename;
+				}
+			}
+					
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}		
 		
 		return Filename;
 	}
@@ -73,7 +107,7 @@ public class Admin extends Access {
 		money = keyboard.nextInt();
 		keyboard.nextLine();
 		
-		//ba.deposit(user,money);
+		ba.deposit(Filename,money);
 		
 	}
 
@@ -83,33 +117,39 @@ public class Admin extends Access {
 		
 		System.out.println("Choose the clients: ");
 		CliStr = keyboard.nextLine();
+		Filename = NametoAccTxt(CliStr);
 		
 		System.out.print("WITHDRAW: ");
 		money = keyboard.nextInt();
+		keyboard.nextLine();
 		
-		//ba.withdraw(user, money);
+		ba.withdraw(Filename, money);
 		
 	}
 
 	public void Show() {
 
 		ClientPrint();
+		
 		System.out.println("Choose the clients: ");
 		CliStr = keyboard.nextLine();
+		Filename = NametoAccTxt(CliStr);
 		
 		System.out.print("ACCOUNT: ");
 		
-		//ba.showAll();
+		ba.showAll(Filename);
 	}
 
 	public void Left() {
 		
 		ClientPrint();
+		
 		System.out.println("Choose the clients: ");
 		CliStr = keyboard.nextLine();
+		Filename = NametoAccTxt(CliStr);
 		
 		System.out.print("LEFT: ");
-		//ba.showLeft();
+		ba.showLeft(Filename);
 	}
 	
 }

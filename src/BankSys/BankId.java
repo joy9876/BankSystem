@@ -10,18 +10,16 @@ import java.util.Scanner;
 public class BankId {
 	
 	private String ID;
-	private String PW;
 	private int count;
 	
 	public BankId() {
 		ID = null;
-		PW = null;
 		count = 0;
 	}
 	
 	public void Init() {
+		System.out.print("Initialize: Bank ID/PW. " );
 		this.ID = null;
-		this.PW = null;
 	}
 
 	public Access check(String ID, String PW) {
@@ -49,6 +47,7 @@ public class BankId {
 					{	// 입력받은 PW와 DB PW가 같을때 true 반환, 아닐때 false 반환 
 						
 						System.out.println("Login Succeed: " + strip[1] + " Author: " + strip[0]);
+						this.ID = strip[1];
 						
 						if (strip[0].equals("Client"))
 						{

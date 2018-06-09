@@ -28,6 +28,7 @@ public class Access {
 	}
 
 	public void Widraw() {
+		
 		System.out.print("WITHDRAW: ");
 		money = keyboard.nextInt();
 		
@@ -46,10 +47,12 @@ public class Access {
 	}
 
 	public void logout() {
+		System.out.println("Logout.");
 		this.logsit = 0;
 	}
 
 	public void login() {
+		
 		this.logsit = 1;
 	}
 	
